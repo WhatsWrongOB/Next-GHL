@@ -3,7 +3,7 @@
 import { useOrder } from "../context/OrderContext";
 import { ExternalLink, Coffee } from "lucide-react";
 import ProgressBar from "../components/ProgressBar";
-import { FormEvent, useState } from "react";
+
 const OrderSummary = () => {
   const {
     selected,

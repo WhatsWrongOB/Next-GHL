@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense, FormEvent } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { FaCoffee, FaMapMarkerAlt, FaCheck } from "react-icons/fa";
 import { BiCoffeeTogo } from "react-icons/bi";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -116,9 +116,7 @@ function ReviewContent() {
         throw new Error(errorData.message || "Failed to send contact");
       }
 
-      const data = await response.json();
-      // console.log("Form Data Submitted:", data);
-      handleNext(); // Proceed to the next step
+      handleNext(); 
     } catch (error) {
       console.error("Submission Error:", error);
       alert("An error occurred. Please try again.");

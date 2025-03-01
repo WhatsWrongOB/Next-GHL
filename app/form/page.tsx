@@ -38,7 +38,6 @@ export default function ContactForm() {
         throw new Error(errorData.message || "Failed to send contact");
       }
 
-      const data = await response.json();
       alert("Form submitted successfully");
       setFormData({
         businessName: "",

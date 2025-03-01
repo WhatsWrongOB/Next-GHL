@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const ghlUrl = "https://rest.gohighlevel.com/v1/contacts";
 
     const response = await fetch(process.env.GHL_LINK as string, {
       method: "POST",

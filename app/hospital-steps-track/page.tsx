@@ -114,9 +114,7 @@ function ReviewContent() {
         throw new Error(errorData.message || "Failed to send contact");
       }
 
-      const data = await response.json();
-      // console.log("Form Data Submitted:", data);
-      handleNext(); // Proceed to the next step
+      handleNext(); 
     } catch (error) {
       console.error("Submission Error:", error);
       alert("An error occurred. Please try again.");
