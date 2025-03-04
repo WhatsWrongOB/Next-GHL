@@ -1,9 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useOrder } from "../context/OrderContext";
 
 export default function ContactForm() {
   // Form state management
+  const { selected } = useOrder();
   const [formData, setFormData] = useState({
     businessName: "",
     townCity: "",
@@ -15,6 +17,8 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = useState<boolean>(false);
+
+  console.log("Selected", selected);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
@@ -31,6 +35,7 @@ export default function ContactForm() {
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
+          selected,
         }),
       });
       if (!response.ok) {

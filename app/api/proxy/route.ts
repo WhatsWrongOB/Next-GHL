@@ -16,16 +16,19 @@ export async function POST(req: Request) {
         phone: body.phone,
         companyName: body.companyName,
         customField: [
-          { id: "GGhCZUrGGn7UrazimDiE", value: body.selected },
+          {
+            id: "GGhCZUrGGn7UrazimDiE",
+            value: "55fadcaa-29d0-45f5-a195-2190bb3290fc",
+          },
           { id: "JS3jFDAl0NuNgYX1yfa1", value: body.selected },
           { id: "EjSOgHa7MI6Rm2gRpZ1r", value: body.selectedEmployees },
           {
             id: "IVu0hQkW5a94VY1VYPZp",
-            value: body.selectedOptions.join(", "),
+            value: body.serveCoffee.join(", "),
           },
           {
-            id: "DjpTvSMFTj4WmjJ8cN24",
-            value: `${body.coffeeQuantity.kg}kg for ${body.coffeeQuantity.days} days`,
+            id: "VSl6ZSWG0nQhOf3LOmWo",
+            value: body.whatNeed.join(", "),
           },
           { id: "DCZoXZsaYoN8WksVYATL", value: body.region },
           {
@@ -37,7 +40,7 @@ export async function POST(req: Request) {
             value: body.wantsSample ? "Yes" : "No",
           },
         ],
-        tags: body.selectedOptions.join(", "),
+        tags: body.selected,
         source: "Next.js Form",
         locationId: process.env.GHL_LOCATION_ID,
       }),

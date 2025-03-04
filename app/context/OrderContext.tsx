@@ -7,6 +7,8 @@ interface OrderContextType {
   selectedEmployees: number | string | null;
   region: string;
   selectedCoffee: string | null;
+  whatNeed: string[];
+  serveCoffee: string[];
   coffeeQuantity: { kg: number; days: number };
   fullName: string; // Added fullName field
   email: string; // Added email field
@@ -14,6 +16,8 @@ interface OrderContextType {
   additionalInfo: string; // Added additionalInfo field
   wantsSample: boolean; // Added wantsSample field
   setSelected: (value: string | null) => void;
+  setWhatNeed: (value: string[]) => void;
+  setServeCoffee: (value: string[]) => void;
   setCompanyName: (value: string) => void;
   setSelectedEmployees: (value: number | string | null) => void;
   setRegion: (value: string) => void;
@@ -49,6 +53,8 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
   const [phone, setPhone] = useState<string>(""); // Added state for phone
   const [additionalInfo, setAdditionalInfo] = useState<string>(""); // Added state for additionalInfo
   const [wantsSample, setWantsSample] = useState<boolean>(false); // Added state for wantsSample
+  const [serveCoffee, setServeCoffee] = useState<string[]>([]);
+  const [whatNeed, setWhatNeed] = useState<string[]>([]);
 
   console.log({
     selected,
@@ -61,19 +67,9 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
     phone,
     additionalInfo,
     wantsSample,
+    serveCoffee,
+    whatNeed,
   });
-
-  // console.log({
-  //   fullName,
-  //   email,
-  //   phone,
-  //   additionalInfo,
-  //   wantsSample,
-  //   selected,
-  //   selectedCoffee,
-  //   region,
-  //   companyName,
-  // })
 
   return (
     <OrderContext.Provider
@@ -83,6 +79,10 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
         selectedEmployees,
         region,
         selectedCoffee,
+        serveCoffee,
+        setServeCoffee,
+        setWhatNeed,
+        whatNeed,
         coffeeQuantity,
         fullName, // Added fullName to context value
         email, // Added email to context value
@@ -106,7 +106,6 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
     </OrderContext.Provider>
   );
 };
-
 
 export const useOrder = () => {
   const context = useContext(OrderContext);
