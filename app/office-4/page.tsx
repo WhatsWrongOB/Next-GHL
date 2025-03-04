@@ -36,17 +36,22 @@ function CoffeeSelectionComponent() {
   }, [searchParams, setCompanyName]);
 
   const handleOptionClick = (option: string) => {
-    setServeCoffee((prev) =>
-      prev.includes(option)
-        ? prev.filter((item: any) => item !== option)
-        : [...prev, option]
-    );
     setSelectedOptions((prev) =>
       prev.includes(option)
         ? prev.filter((item) => item !== option)
         : [...prev, option]
     );
   };
+
+  useEffect(() => {
+    setServeCoffee(selectedOptions);
+  }, [selectedOptions]);
+
+  // setServeCoffee((prev) =>
+  //   prev.includes(option)
+  //     ? prev.filter((item) => item !== option)
+  //     : [...prev, option]
+  // );
 
   const handleNext = () => {
     if (companyName && selectedOptions.length > 0) {

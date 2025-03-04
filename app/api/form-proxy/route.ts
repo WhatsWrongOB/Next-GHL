@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(body.selected);
 
     const response = await fetch(process.env.GHL_LINK as string, {
       method: "POST",
