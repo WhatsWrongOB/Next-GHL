@@ -14,10 +14,11 @@ export async function POST(req: Request) {
         email: body.email,
         phone: body.phone,
         companyName: body.companyName,
-        
         customField: [
           { id: "GGhCZUrGGn7UrazimDiE", value: "4bb9b077-4278-4108-88d0-9d4d6ccac415" },
           { id: "JS3jFDAl0NuNgYX1yfa1", value: body.selected },
+          { id: "6abBmIjfJwpRWaco6tPW", value: body.selectedBusinessType },
+          { id: "fGdl7g8tzj3FgjU0FtJ9", value: body.businessName },
           { id: "DCZoXZsaYoN8WksVYATL", value: body.region },
           {
             id: "1NXSDpjhasPQjmHXNbkk",
