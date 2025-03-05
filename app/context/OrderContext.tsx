@@ -56,15 +56,6 @@ export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
   const [serveCoffee, setServeCoffee] = useState<string[]>([]);
   const [whatNeed, setWhatNeed] = useState<string[]>([]);
 
-  console.log({
-    selected,
-    companyName,
-    selectedCoffee,
-    region,
-    whatNeed,
-    serveCoffee,
-  });
-
   return (
     <OrderContext.Provider
       value={{
